@@ -1,35 +1,58 @@
-body{
+body {
   padding: 0;
   margin: 0;
+  overflow-x: hidden;
 }
-.header{
+.header {
   background-image: url(./publics/images/parallax01.jpg);
   width: 100%;
-  height: 130vh;
+  height: 100vh;
 }
-.img-cap{
+.img-cap {
   width: 100%;
   height: 150px;
   background-color: yellow;
 }
-.img-cap h1{
+.img-cap h1 {
   line-height: 1;
   display: inline;
 }
-.img-cap h5 , h1 , span{
+.img-cap h5,
+h1,
+span {
   color: green;
-
 }
 
-.card-body > span{
+.card-body > span {
   line-height: 2rem;
   color: grey;
-
 }
-.section1{
+.section1 {
   background-color: aliceblue;
   width: 100%;
 }
-.section1-img img{
+.section1-img img {
+  border-radius: 50%;
+}
+
+.section3 {
+  background-color: aliceblue;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.section3 .icon {
+  width: 70px;
+  height: 70px;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: yellow;
+  margin-right: 10px;
+  border-radius: 50%;
+}
+.section3 .des{
+  margin-left: 100px;
+}
+.section4 img{
   border-radius: 50%;
 }
