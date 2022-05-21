@@ -42,7 +42,7 @@ class Dates {
     return this._day;
   }
 
-  toString(format) {
+  static toString(format) {
     let _format = format.split("/");
     let result = '';
     for (let i = 0; i < format.length; i++) {
@@ -72,7 +72,7 @@ class Dates {
     }
     return result
   }
-  compareDate(date1, date2) {
+  static compareDate(date1, date2) {
     if (new Date(date1) > new Date(date2)) return 1;
     else if (new Date(date1) < new Date(date2)) return -1;
     else return 0
@@ -80,7 +80,7 @@ class Dates {
 }
 const date = new Dates(1352, 4, 31);
 // console.log(date.toString("d/m/y"));
-console.log(date.compareDate('2005/6/26', '2005/6/25'));
+// console.log(date.compareDate('2005/6/26', '2005/6/25'));
 
 
 class Time {
@@ -175,7 +175,29 @@ class Time {
     }
     return result
   }
+  static compairTime(time1, time2) {
+    if (time1.hour > time2.hour) {
+      return 1
+    } else if (time1.hour === time2.hour) {
+      if (time1.minute > time2.minute) {
+        return 1
+      } else if (time1.minute === time2.minute) {
+        if (time1.second > time2.second) {
+          return 1
+        } else if (time1.second === time2.second) {
+          return 0
+        } else {
+          return -1
+        }
+      } else {
+        return -1
+      }
+    } else {
+      return -1
+    }
+  }
 }
 
-const time1 = new Time(3, 48, 40);
-console.log(time1.toString("s:h:i p"));
+const time1 = new Time(5, 48, 41);
+const time2 = new Time(5, 48, 43);
+console.log(Time.compairTime(time1, time2));
