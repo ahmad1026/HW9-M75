@@ -71,8 +71,111 @@ class Dates {
       }
     }
     return result
-
+  }
+  compareDate(date1, date2) {
+    if (new Date(date1) > new Date(date2)) return 1;
+    else if (new Date(date1) < new Date(date2)) return -1;
+    else return 0
   }
 }
 const date = new Dates(1352, 4, 31);
-console.log(date.toString("d/m/y"));
+// console.log(date.toString("d/m/y"));
+console.log(date.compareDate('2005/6/26', '2005/6/25'));
+
+
+class Time {
+  constructor(hour, minute, second) {
+    this.hour = hour;
+    this.minute = minute;
+    this.second = second;
+  }
+
+  set hour(value) {
+    if (value >= 0 && value <= 23) {
+      this._hour = value;
+    } else {
+      this._hour = 'wrong hour'
+    }
+
+  }
+  get hour() {
+    return this._hour;
+  }
+
+  /************** */
+
+  set minute(value) {
+    if (value >= 0 && value <= 59) {
+      this._minute = value;
+    } else {
+      this._minute = 'wrong minute'
+    }
+  }
+  get minute() {
+    return this._minute;
+  }
+  /************* */
+
+  set second(value) {
+    if (value >= 0 && value <= 59) {
+      this._second = value;
+    } else {
+      this._second = 'wrong second'
+    }
+  }
+  get second() {
+    return this._second;
+  }
+
+  toString(format) {
+    let _format = format.split(":");
+    let result = '';
+    for (let j = 0; j < format.length; j++) {
+      switch (_format[j]) {
+        case 'h':
+          if (j === 2) {
+            result += `${this._hour}`;
+          } else {
+            result += `${this._hour}:`
+          }
+          break;
+        case 'i':
+          if (j === 2) {
+            result += `${this._minute}`
+          } else {
+            result += `${this._minute}:`
+          }
+          break;
+        case 's':
+          if (j === 2) {
+            result += `${this._second}`
+          } else {
+            result += `${this._second}:`
+          }
+          break;
+        case 's a':
+          result += `${this._second} a.m.`
+          break;
+        case 's p':
+          result += `${this._second} p.m.`
+          break;
+        case 'i a':
+          result += `${this._minute} a.m.`
+          break;
+        case 'i p':
+          result += `${this._minute} p.m.`
+          break;
+        case 'h a':
+          result += `${this._hour} a.m.`
+          break;
+        case 'h p':
+          result += `${this._hour} p.m.`
+          break;
+      }
+    }
+    return result
+  }
+}
+
+const time1 = new Time(3, 48, 40);
+console.log(time1.toString("s:h:i p"));
