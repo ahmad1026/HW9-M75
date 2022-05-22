@@ -249,10 +249,22 @@ class TimeStamp {
   }
 }
 
-const timestamp = new TimeStamp(1352, 5, 25, 4, 25, 30);
+// const timestamp = new TimeStamp(1352, 5, 25, 4, 25, 30);
+// console.log(timestamp.toString("y/m/d H:i"));
 
-console.log(timestamp.toString("y/m/d H:i"));
 
+
+class Event{
+
+  constructor(subject , description , year, month, day, hour, minute, second) {
+    this.subject = subject;
+    this.description = description
+    this.TimeStamp = new TimeStamp( year, month, day, hour, minute, second)
+    
+  }
+
+}
+const event1 =  new Event("salam", )
 
 
 
