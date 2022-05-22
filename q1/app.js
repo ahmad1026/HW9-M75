@@ -203,6 +203,56 @@ class Time {
 // const time2 = new Time(5, 48, 43);
 // console.log(Time.compairTime(time1, time2));
 
+class TimeStamp {
+
+  constructor(year, month, day, hour, minute, second) {
+
+    this.Dates = new Dates(year, month, day)
+    this.Time = new Time(hour, minute, second)
+  }
+
+  toString(format) {
+    let _format = format.split('');
+    let result = '';
+    for (let i = 0; i < _format.length; i++) {
+      switch (_format[i]) {
+        case '/':
+          result += '/'
+          break;
+        case ':':
+          result += ':'
+          break;
+        case ' ':
+          result += ' '
+          break;
+        case 'y':
+          result += `${this.Dates.year}`
+          break;
+        case 'm':
+          result += `${this.Dates.month}`
+          break;
+        case 'd':
+          result += `${this.Dates.day}`
+          break;
+        case 'H':
+          result += `${this.Time.hour}`
+          break;
+        case 'i':
+          result += `${this.Time.minute}`
+          break;
+      }
+
+    }
+    
+    return result;
+
+  }
+}
+
+const timestamp = new TimeStamp(1352, 5, 25, 4, 25, 30);
+
+console.log(timestamp.toString("y/m/d H:i"));
+
 
 
 
